@@ -18,7 +18,8 @@ uses
   Test.PasDantic.Validator in 'Test.PasDantic.Validator.pas',
   PasDantic.Attributes in '..\Source\PasDantic.Attributes.pas',
   PasDantic.SchemaGenerator in '..\Source\PasDantic.SchemaGenerator.pas',
-  PasDantic.Validator in '..\Source\PasDantic.Validator.pas';
+  PasDantic.Validator in '..\Source\PasDantic.Validator.pas',
+  Test.PasDantic.RegexAttributes in 'Test.PasDantic.RegexAttributes.pas';
 
 { keep comment here to protect the following conditional from being removed by the IDE when adding a unit }
 {$IFNDEF TESTINSIGHT}

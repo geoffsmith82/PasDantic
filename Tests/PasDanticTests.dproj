@@ -165,6 +165,7 @@
         <DCCReference Include="..\Source\PasDantic.Attributes.pas"/>
         <DCCReference Include="..\Source\PasDantic.SchemaGenerator.pas"/>
         <DCCReference Include="..\Source\PasDantic.Validator.pas"/>
+        <DCCReference Include="Test.PasDantic.RegexAttributes.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
