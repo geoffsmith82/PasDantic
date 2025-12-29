@@ -1,12 +1,12 @@
 {
  "metadata": {
   "id": "geoffsmith82.PasDantic",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "A Delphi Implementation of pydantic",
   "authors": "Geoffrey Smith",
   "projectUrl": "https://github.com/geoffsmith82/PasDantic",
   "repositoryUrl": "https://github.com/geoffsmith82/PasDantic",
-  "repositoryCommit": "#HASH#",
+  "repositoryCommit": "e26aff8d18c7263f6e860c4505bc75be0da93c1b",
   "license": "MIT",
   "copyright": "",
   "tags": ""
