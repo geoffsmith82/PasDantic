@@ -49,6 +49,31 @@ type
     constructor Create(const APattern: string);
     property Pattern: string read FPattern;
   end;
+  
+  EmailAttribute = class(RegexAttribute)
+  public
+    constructor Create;
+  end;  
+  
+  IPv4Attribute = class(RegexAttribute)
+  public
+    constructor Create;
+  end;
+  
+  IPv6Attribute = class(TCustomAttribute)
+  public
+    constructor Create;
+  end;
+
+  HostnameAttribute = class(RegexAttribute)
+  public
+    constructor Create;
+  end;
+
+  UUIDAttribute = class(RegexAttribute)
+  public
+    constructor Create;
+  end;
 
   AllowedValuesAttribute = class(TCustomAttribute)
   private
@@ -94,6 +119,26 @@ begin
   FPattern := APattern;
 end;
 
+constructor EmailAttribute.Create;
+begin
+  inherited Create(
+   '(?i)^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$'
+  );
+end;
+
+constructor IPv4Attribute.Create;
+begin
+  inherited Create(
+    '^(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)' +
+    '(\.(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)){3}$'
+  );
+end;
+
+constructor IPv6Attribute.Create;
+begin
+  inherited Create;
+end;
+
 constructor AllowedValuesAttribute.Create(const Csv: string);
 begin
   FAllowed := Csv.Split([',']); // or ';' etc
@@ -114,5 +159,38 @@ constructor DefaultAttribute.Create(const AValue: Integer);
 begin
   FValue := AValue;
 end;
+
+{ HostnameAttribute }
+
+constructor HostnameAttribute.Create;
+begin
+  inherited Create(
+    '^([A-Z0-9]' +
+    '([A-Z0-9\-]{0,61}[A-Z0-9])?\.)+' +
+    '[A-Z]{2,}$'
+  );
+end;
+
+{ UUIDAttribute }
+
+constructor UUIDAttribute.Create;
+begin
+  inherited Create(
+    '(?i)^(?:' +
+      '\{[0-9A-F]{8}-' +
+      '[0-9A-F]{4}-' +
+      '[1-5][0-9A-F]{3}-' +
+      '[89AB][0-9A-F]{3}-' +
+      '[0-9A-F]{12}\}' +
+    '|' +
+      '[0-9A-F]{8}-' +
+      '[0-9A-F]{4}-' +
+      '[1-5][0-9A-F]{3}-' +
+      '[89AB][0-9A-F]{3}-' +
+      '[0-9A-F]{12}' +
+    ')$'
+  );
+end;
+
 
 end.
